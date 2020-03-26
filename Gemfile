@@ -36,11 +36,13 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use haml for template
 gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models', branch: 'develop'
 end
 
 group :development do
@@ -53,6 +55,8 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'rspec-retry', '~> 0.5.5'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
