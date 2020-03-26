@@ -1,7 +1,7 @@
 
 RSpec.describe TweetServices::Update do
   before do
-    @tweet = CustomTweet.create({ content: 'parent' })
+    @tweet = CustomTweet.create({ content: 'test content' })
   end
 
   describe 'Validate update' do
@@ -34,7 +34,7 @@ RSpec.describe TweetServices::Update do
 
     describe 'nil tweet passed' do
       it 'Should fail validation' do
-        service = TweetServices::Update.new(@tweet, { content: 'valid content' })
+        service = TweetServices::Update.new(nil, { content: 'valid content' })
 
         expect(service.valid?).to be false
         expect(service.errors).to match_array [['Tweet is not found to update']]

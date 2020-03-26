@@ -6,7 +6,8 @@ RSpec.describe TweetServices::Delete do
   describe 'Test Delete tweet' do
     describe 'delete tweet' do
       it 'Should delete tweet' do
-        TweetServices::Delete.new(@tweet)
+        TweetServices::Delete.new(@tweet).()
+
         expect(CustomTweet.exists?(@tweet.id)).to be false
       end
     end
