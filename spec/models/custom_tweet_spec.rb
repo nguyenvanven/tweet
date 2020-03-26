@@ -8,7 +8,7 @@ RSpec.describe CustomTweet, type: :model do
 
         CustomTweet.create({ content: 'test', parent_tweet_id: parent_tweet.id })
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 1
+        expect(parent_tweet.reload.children_tweet_count).to eq 1
       end
     end
 
@@ -19,7 +19,7 @@ RSpec.describe CustomTweet, type: :model do
         CustomTweet.create({ content: 'test1', parent_tweet_id: parent_tweet.id })
         CustomTweet.create({ content: 'test2', parent_tweet_id: parent_tweet.id })
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 2
+        expect(parent_tweet.reload.children_tweet_count).to eq 2
       end
     end
 
@@ -32,8 +32,8 @@ RSpec.describe CustomTweet, type: :model do
 
         CustomTweet.create({ content: 'test', parent_tweet_id: parent_level_2.id })
 
-        expect(parent_level_1.reload.try(:children_tweet_count)).to equal 2
-        expect(parent_level_2.reload.try(:children_tweet_count)).to equal 1
+        expect(parent_level_1.reload.try(:children_tweet_count)).to eq 2
+        expect(parent_level_2.reload.try(:children_tweet_count)).to eq 1
       end
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe CustomTweet, type: :model do
 
         children_tweet.destroy
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 0
+        expect(parent_tweet.reload.children_tweet_count).to eq 0
       end
     end
 
@@ -61,7 +61,7 @@ RSpec.describe CustomTweet, type: :model do
         children_tweet_1.destroy
         children_tweet_2.destroy
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 0
+        expect(parent_tweet.reload.children_tweet_count).to eq 0
       end
     end
 
@@ -75,8 +75,8 @@ RSpec.describe CustomTweet, type: :model do
 
         children_tweet.destroy
 
-        expect(parent_tweet_level_1.reload.children_tweet_count).to equal 1
-        expect(parent_tweet_level_2.reload.children_tweet_count).to equal 0
+        expect(parent_tweet_level_1.reload.children_tweet_count).to eq 1
+        expect(parent_tweet_level_2.reload.children_tweet_count).to eq 0
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe CustomTweet, type: :model do
 
         children_tweet.destroy
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 0
+        expect(parent_tweet.reload.children_tweet_count).to eq 0
       end
     end
   end
@@ -103,7 +103,7 @@ RSpec.describe CustomTweet, type: :model do
         children_tweet.content = 'New content'
         children_tweet.save!
 
-        expect(parent_tweet.reload.children_tweet_count).to equal 1
+        expect(parent_tweet.reload.children_tweet_count).to eq 1
       end
     end
   end

@@ -51,7 +51,7 @@ RSpec.describe TweetServices::Creation do
 
         created_tweet = TweetServices::Creation.new({content: 'test'}).()
 
-        expect(created_tweet.try(:parent_tweet)).to equal nil
+        expect(created_tweet.try(:parent_tweet)).to eq nil
       end
     end
 
@@ -61,7 +61,7 @@ RSpec.describe TweetServices::Creation do
 
         created_tweet = TweetServices::Creation.new({ content: 'test', parent_tweet_id: parent_tweet.id }).()
 
-        expect(created_tweet.try(:parent_tweet).try(:id)).to equal parent_tweet.id
+        expect(created_tweet.try(:parent_tweet).try(:id)).to eq parent_tweet.id
       end
     end
   end
