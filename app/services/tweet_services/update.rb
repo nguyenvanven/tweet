@@ -26,6 +26,7 @@ module TweetServices
     def call
       return unless valid?
       @custom_tweet.save!
+      @custom_tweet
     end
 
     private

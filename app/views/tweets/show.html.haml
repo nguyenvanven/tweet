@@ -1,0 +1,8 @@
+= render 'layouts/page_header'
+
+.c-tweetShow
+  .c-tweetShow_header
+  .c-tweetShow_body
+    = render partial: 'tweets/tweet_detail', locals: { tweet: @tweet, expand_children: true }
+
+!= load_javascript_class('CT.TweetShow')

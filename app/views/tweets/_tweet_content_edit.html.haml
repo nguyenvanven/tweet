@@ -1,0 +1,8 @@
+.c-tweetContentEdit.js-tweetContentEdit{ 'data-id': tweet.id, 'data-parent-id': tweet.parent_tweet_id}
+  .c-tweetContentEdit__field
+    %textarea.c-tweetContentEdit__textArea.js-tweetEditArea{ 'data-original-text': tweet.content, rows: 4 }= tweet.content
+  .c-tweetContentEdit__actions
+    .c-tweetContentEdit__actions-btn
+      %a.js-saveTweet{ href: '#' } Save
+    .c-tweetContentEdit__actions-btn
+      %a.js-cancelTweet{ href: '#' } Cancel

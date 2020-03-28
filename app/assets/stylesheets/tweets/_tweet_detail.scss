@@ -1,0 +1,40 @@
+$child-padding: 1em;
+$content-padding: 0.5em;
+.c-tweetDetail {
+  text-align: left;
+
+  &__content {
+    background-color: #ddd;
+    padding: $content-padding;
+  }
+
+  &__children {
+    padding-left: $child-padding;
+    margin-top: 0.2em;
+    display: none;
+
+    &.is-expanded {
+      display: block;
+    }
+  }
+
+  &__actions {
+    padding-left: $content-padding;
+  }
+
+  &__childSum,
+  &__commentToggle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__childSum {
+    padding-right: 1em;
+    border-right: 1px solid #e0e0e0;
+    margin-right: 1em;
+  }
+
+  &__newComment {
+    margin-top: 1em;
+  }
+}

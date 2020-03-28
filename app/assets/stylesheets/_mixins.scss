@@ -1,0 +1,14 @@
+@mixin flex-display() {
+  display: -moz-box;
+  display: box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+
+@mixin flex-box($values) {
+          -ms-flex: $values;
+  -webkit-box-flex: $values;
+              flex: $values;
+}

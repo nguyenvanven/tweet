@@ -1,4 +1,28 @@
 
 .tweet-btn {
-  padding: 0.5em;
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 18px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #636363;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.tweet-btn-primary {
+  background-color: #3F69F2;
+  color: #fff;
+}
+
+.hidden.hidden.hidden {
+  display: none;
+}
+
+textarea, input {
+  font-size: 14px;
+  margin-left: 0 0.5em;
 }

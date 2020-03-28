@@ -1,0 +1,21 @@
+.c-tweetDetail.js-tweetDetail{ 'data-id': tweet.id }
+  .c-tweetDetail__content.js-tweetDetail__content
+    = render partial: 'tweets/tweet_content', locals: { tweet: tweet }
+  .c-tweetDetail__actions
+    - if tweet.child_tweets.size > 0
+      .c-tweetDetail__childSum{ class: expand_children ? 'hidden' : ''}
+        %a.js-viewComments
+          %span.c-tweetDetail__childSum-title View Comments
+          %span.c-tweetDetail__childSum-count (#{tweet.children_tweet_count})
+    .c-tweetDetail__commentToggle
+      %a.js-tweetDetail__commentToggle{ href: "#" } Comment
+
+  .c-tweetDetail__children{ class: expand_children ? 'is-expanded' : '' }
+    - if tweet.child_tweets.size > 0
+      - tweet.child_tweets.each do |child_tweet|
+        .c-tweetDetail__child
+        = render partial: 'tweets/tweet_detail', locals: { tweet: child_tweet, expand_children: expand_children }
+
+    .c-tweetDetail__newComment.js-commentTweetBlock.hidden{ class: "js-commentTweet--#{tweet.id}"}
+      - new_tweet = CustomTweet.new({ parent_tweet_id: tweet.id })
+      = render partial: 'tweets/tweet_content_edit', locals: { tweet: new_tweet }
