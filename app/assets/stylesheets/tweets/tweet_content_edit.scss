@@ -1,0 +1,19 @@
+@import '../mixins';
+
+.c-tweetContentEdit {
+  width: 100%;
+  @include flex-display;
+
+  &__field {
+    @include flex-box(1 1 auto);
+    margin-right: 1em;
+  }
+
+  &__actions {
+    @include flex-box(0 0 auto);
+  }
+
+  &__textArea {
+    width: 100%;
+  }
+}

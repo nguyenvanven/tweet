@@ -1,0 +1,24 @@
+@import '../mixins';
+
+.c-tweetContent {
+  position: relative;
+
+  &__block {
+    @include flex-display;
+
+    &-field {
+      @include flex-box(1 1 auto);
+      margin-right: 1em;
+    }
+
+    &-actions {
+      @include flex-box(0 0 auto);
+    }
+  }
+
+  &__editToggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

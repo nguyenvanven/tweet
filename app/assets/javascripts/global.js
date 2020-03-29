@@ -1,0 +1,2 @@
+/* global namespce CustomTweet */
+CT = {};
