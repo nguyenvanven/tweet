@@ -43,7 +43,6 @@ class TweetsController < ApplicationController
   end
 
   def update
-    debugger
     service = TweetServices::Update.new(custom_tweet, update_params)
     if service.valid?
       updated_tweet = service.()
