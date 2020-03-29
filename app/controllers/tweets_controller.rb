@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action { @page_title = 'Tweet' }
 
   def index
+    @tweets = CustomTweet.take(10)
   end
 
   def new
@@ -17,11 +18,23 @@ class TweetsController < ApplicationController
         format.html do
           redirect_to tweet_path(created_tweet)
         end
-        format.json do
-          render json: created_tweet
+
+        format.text do
+          render template: 'tweets/_tweet_detail.html.haml', locals: { tweet: created_tweet, expand_children: true }, layout: false
         end
       end
     else
+      errors = build_return_errors_for(service.errors)
+      respond_to do |format|
+        flash[:error] = 'Tweet saved!'
+        format.html do
+          redirect_to tweet_path(created_tweet)
+        end
+
+        format.text do
+          render text: errors, status: :unprocessable_entity
+        end
+      end
     end
   end
 
@@ -36,11 +49,15 @@ class TweetsController < ApplicationController
       updated_tweet = service.()
       render json: updated_tweet
     else
-      render json: {errors: service.errors.flatten.join(',')}, status: :unprocessable_entity
+      render json: {errors: build_return_errors_for(service.errors)}, status: :unprocessable_entity
     end
   end
 
   private
+
+  def build_return_errors_for(errors)
+    errors.flatten.join(',')
+  end
 
   def custom_tweet
     @custom_tweet ||= CustomTweet.find(params[:id])

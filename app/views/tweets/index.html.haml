@@ -1,0 +1,9 @@
+= render 'layouts/page_header'
+
+.c-tweetIndex
+  .c-tweetIndex__header
+    %h1 All Tweets
+  .c-tweetIndex__body
+    = render partial: 'tweets/tweets', locals: { tweets: @tweets }
+
+!= load_javascript_class('CT.TweetList')

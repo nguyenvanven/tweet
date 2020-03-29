@@ -1,0 +1,8 @@
+.c-tweets
+  .c-tweets__items
+    - tweets.each do |tweet|
+      .c-tweets__item
+        = render partial: 'tweets/tweet_detail', locals: { tweet: tweet, expand_children: false }
+      .c-tweets__separator
+  .c-tweets__paging
+  .c-tweets__actions

@@ -1,8 +1,8 @@
 - form_url = @tweet.new_record? ? tweets_path : tweet_path(@tweet)
 = form_for(@tweet, url: form_url) do |form|
   .c-tweetForm
-    .c-tweetForm_content
-      = form.text_area :content
-    .c-tweetForm_actions
-      %a.tweet-btn.c-tweetForm_cancelBtn{ href: form_url} Cancel
-      %button.tweet-btn.tweet-btn-primary.c-tweetForm_saveBtn{ type: 'submit'} Save
+    .c-tweetForm__content
+      = form.text_area :content, class: 'c-tweetForm__textarea', rows: 6
+    .c-tweetForm__actions
+      %a.tweet-btn.c-tweetForm__cancelBtn{ href: form_url} Cancel
+      %button.tweet-btn.tweet-btn-primary.c-tweetForm__saveBtn{ type: 'submit'} Save

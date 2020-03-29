@@ -1,10 +1,11 @@
+@import './variable';
 
 .tweet-btn {
   display: inline-block;
   padding: 8px 12px;
   font-size: 14px;
   line-height: 18px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $border-color;
   background-color: #fff;
   color: #636363;
   -webkit-border-radius: 2px;
