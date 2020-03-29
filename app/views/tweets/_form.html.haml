@@ -2,7 +2,7 @@
 = form_for(@tweet, url: form_url) do |form|
   .c-tweetForm
     .c-tweetForm__content
-      = form.text_area :content, class: 'c-tweetForm__textarea', rows: 6
+      = form.text_area :content, class: 'c-tweetForm__textarea', rows: 6, maxlength: 140
     .c-tweetForm__actions
       %a.tweet-btn.c-tweetForm__cancelBtn{ href: form_url} Cancel
       %button.tweet-btn.tweet-btn-primary.c-tweetForm__saveBtn{ type: 'submit'} Save

@@ -5,3 +5,8 @@
     .c-home__head
       %h1 Welcome to Tweet
     .c-home__content
+      = render partial: 'tweets/tweets', locals: { tweets: @tweets }
+    .c-home__actions
+      %a.tweet-btn.c-home__actions-btn{ href: tweets_path } View more ...
+
+!= load_javascript_class('CT.TweetList')
