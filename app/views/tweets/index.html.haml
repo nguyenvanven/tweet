@@ -3,6 +3,11 @@
 .c-tweetIndex
   .c-tweetIndex__header
     %h1 All Tweets
+  .c-tweetIndex__paging
+    - if @page > 1
+      %a.c-tweetIndex__paging-link{ href: "#{tweets_path}?page=#{@page - 1}&per_page=#{@item_per_page}"} << Previous
+    - if @page * @item_per_page < @total_items
+      %a.c-tweetIndex__paging-link{ href: "#{tweets_path}?page=#{@page + 1}&per_page=#{@item_per_page}"} Next >>
   .c-tweetIndex__body
     = render partial: 'tweets/tweets', locals: { tweets: @tweets }
 

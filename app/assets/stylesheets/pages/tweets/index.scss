@@ -1,0 +1,14 @@
+@import '../../common/variable';
+
+.c-tweetIndex {
+  padding: 0 $content-padding;
+
+  &__paging {
+    text-align: right;
+    margin-bottom: 0.5em;
+
+    &-link {
+      margin-left: 1em;
+    }
+  }
+}

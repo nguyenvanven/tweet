@@ -1,8 +1,15 @@
 class TweetsController < ApplicationController
   before_action { @page_title = 'Tweet' }
 
+  DEFAULT_PER_PAGE = 1;
+  FIRST_PAGE = 1;
+
   def index
-    @tweets = CustomTweet.take(10)
+    @page = (params[:page] || FIRST_PAGE).to_i
+    @item_per_page = (params[:per_page] || DEFAULT_PER_PAGE).to_i
+    service = TweetServices::Search.new(page: @page, item_per_page: @item_per_page)
+    @tweets = service.()
+    @total_items = service.total_items
   end
 
   def new
