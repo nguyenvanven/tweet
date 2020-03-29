@@ -27,3 +27,11 @@ textarea, input {
   font-size: 14px;
   margin-left: 0 0.5em;
 }
+
+.accept {
+  color: $accept-action-color
+}
+
+.danger {
+  color: $danger-color
+}

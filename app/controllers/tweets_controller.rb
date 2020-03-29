@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action { @page_title = 'Tweet' }
 
-  DEFAULT_PER_PAGE = 1;
+  DEFAULT_PER_PAGE = 10;
   FIRST_PAGE = 1;
 
   def index

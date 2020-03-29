@@ -5,8 +5,7 @@
     - if tweet.child_tweets.size > 0
       .c-tweetDetail__childSum.js-tweetDetail__childSum{ class: expand_children ? 'hidden' : ''}
         %a.js-viewComments
-          %a.c-tweetDetail__childSum-toggle.js-tweetDetail__childSum-toggle{ href: '#' }
-            View Comments
+          %a.fa.fa-comment.c-tweetDetail__childSum-toggle.js-tweetDetail__childSum-toggle{ href: '#' }
             %span.c-tweetDetail__childSum-count (#{tweet.children_tweet_count})
     .c-tweetDetail__commentToggle
       %a.js-tweetDetail__commentToggle{ href: "#" } Comment
