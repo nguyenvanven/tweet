@@ -3,7 +3,7 @@
     .c-tweetContent__block-field
       %span.js-tweetTextContent= tweet.content
     .c-tweetContent__block-actions
-      %a.c-tweetContent__editToggle.js-editTweet{ href: '#' } Edit
+      %a.fa.fa-edit.c-tweetContent__editToggle.js-editTweet{ href: '#' }
 
   .c-tweetContent__block.js-editTweetBlock.hidden
     = render partial: 'tweets/tweet_content_edit', locals: { tweet: tweet }
