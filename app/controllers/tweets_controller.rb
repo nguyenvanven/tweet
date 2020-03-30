@@ -59,6 +59,11 @@ class TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    TweetServices::Delete.new(custom_tweet).()
+    render json: {}
+  end
+
   private
 
   def build_return_errors_for(errors)

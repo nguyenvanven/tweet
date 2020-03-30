@@ -1,9 +1,13 @@
 .c-tweetContent.js-tweetContent
   .c-tweetContent__block.js-textContentBlock
     .c-tweetContent__block-field
-      %span.js-tweetTextContent= tweet.content
+      - if tweet.parent_tweet_id.blank?
+        %a.js-tweetTextContent{ href: tweet_path(tweet) }= tweet.content
+      - else
+        %span.js-tweetTextContent= tweet.content
     .c-tweetContent__block-actions
       %a.fa.fa-edit.c-tweetContent__editToggle.js-editTweet{ href: '#' }
+      %a.fa.fa-trash.danger.c-tweetContent__deleteToggle.js-deleteTweet{ href: '#', 'data-id': tweet.id }
 
   .c-tweetContent__block.js-editTweetBlock.hidden
     = render partial: 'tweets/tweet_content_edit', locals: { tweet: tweet }

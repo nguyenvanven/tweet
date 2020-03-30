@@ -10,13 +10,13 @@
     .c-tweetDetail__commentToggle
       %a.js-tweetDetail__commentToggle{ href: "#" } Comment
 
+  .c-tweetDetail__newComment.js-commentTweetBlock.hidden{ class: "js-commentTweet--#{tweet.id}"}
+    - new_tweet = CustomTweet.new({ parent_tweet_id: tweet.id })
+    = render partial: 'tweets/tweet_content_edit', locals: { tweet: new_tweet }
+
   - children_class = "js-tweetChildrenOf-#{tweet.id}"
   .c-tweetDetail__children.js-tweetChildren{ class: expand_children ? "is-expanded #{children_class}" : children_class }
     - if tweet.child_tweets.size > 0
       - tweet.child_tweets.each do |child_tweet|
         .c-tweetDetail__child
           = render partial: 'tweets/tweet_detail', locals: { tweet: child_tweet, expand_children: expand_children }
-
-  .c-tweetDetail__newComment.js-commentTweetBlock.hidden{ class: "js-commentTweet--#{tweet.id}"}
-    - new_tweet = CustomTweet.new({ parent_tweet_id: tweet.id })
-    = render partial: 'tweets/tweet_content_edit', locals: { tweet: new_tweet }
