@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The custom tweet app
 
-Things you may want to cover:
+## Author
+* Full Name: Nguyen Van Ven
+* email: vennguyenev@gmail.com
 
-* Ruby version
+## Technical detail
+* Ruby on Rails
+* Active record with sqlite database
+* coffeescript, haml, scss
 
-* System dependencies
+## How to run
+1. cd to project folder
+2. migrate database model:
+  >> rake db:migrate
+3. start server:
+  >>rails server
 
-* Configuration
+## What is implemented:
+1. CRUD actions for tweets
+2. Tweet lists, homepage with top 10 tweets
+3. Paging for tweet list
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## To Be improved
+1. Tweet list should be lazy loading for detail: only load when user click view comments.
+2. Improve front end design + navigation menu
