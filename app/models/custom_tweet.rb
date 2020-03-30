@@ -10,7 +10,7 @@
 #  updated_at           :datetime         not null
 #
 class CustomTweet < ActiveRecord::Base
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 140 }
   after_create :increse_parents_count
   after_destroy :reduce_parents_count
 
