@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = CustomTweet.find(params[:id])
+    @tweet = CustomTweet.preload(:child_tweets).find(params[:id])
   end
 
   def update
